@@ -1,22 +1,19 @@
-import type { Metadata } from 'next'
-import './globals.css'
+import "./globals.css";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Skinstric',
-  description: 'Your AI Skin Analysis',
-}
+  title: "Skinstric",
+  description: "Skinstric clone",
+};
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <body className="__className_5f0add antialiased text-[#1A1B1C]">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
-  )
+  );
 }
-
