@@ -1,9 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "Skinstric",
-  description: "Skinstric clone",
+  description: "Your AI Skin Analysis",
 };
 
 export default function RootLayout({
@@ -13,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${inter.variable} font-inter antialiased text-[#1A1B1C]`}>{children}</body>
     </html>
   );
 }

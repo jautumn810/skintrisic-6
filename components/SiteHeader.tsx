@@ -3,93 +3,39 @@ import Link from "next/link";
 
 export default function SiteHeader({ section }: { section: string }) {
   return (
-    <div style={{
-      display: "flex",
-      flexDirection: "row",
-      height: "64px",
-      width: "100%",
-      justifyContent: "space-between",
-      paddingTop: "12px",
-      paddingBottom: "12px",
-      marginBottom: "12px",
-      position: "relative",
-      zIndex: 1000
-    }}>
-      <div style={{
-        display: "flex",
-        flexDirection: "row",
-        paddingTop: "4px",
-        transform: "scale(0.75)",
-        justifyContent: "center",
-        alignItems: "center"
-      }}>
-        <Link href="/" style={{
-          display: "inline-flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "8px",
-          whiteSpace: "nowrap",
-          borderRadius: "6px",
-          height: "36px",
-          paddingLeft: "16px",
-          paddingRight: "16px",
-          paddingTop: "8px",
-          paddingBottom: "8px",
-          fontWeight: 600,
-          fontSize: "14px",
-          marginRight: "8px",
-          lineHeight: "16px",
-          color: "#1A1B1C",
-          textDecoration: "none"
-        }}>
+    <div className="flex flex-row h-[64px] w-full justify-between py-3 mb-3 relative z-[1000]">
+      <div className="flex flex-row pt-1 scale-75 justify-center items-center">
+        <Link
+          className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md transition-colors h-9 px-4 py-2 font-semibold text-sm mr-2 line-clamp-4 leading-[16px] text-[#1A1B1C] z-1000"
+          href="/"
+        >
           SKINSTRIC
         </Link>
         <Image
           alt="left-bracket"
-          src="/Rectangle_2710.png"
+          loading="lazy"
           width={5}
           height={19}
-          style={{ width: "4px", height: "17px", color: "transparent" }}
+          decoding="async"
+          className="w-[4px] h-[17px]"
+          style={{ color: "transparent" }}
+          src="/Rectangle_2710.png"
         />
-        <p style={{
-          color: "#1a1b1c83",
-          opacity: 0.7,
-          fontWeight: 600,
-          fontSize: "14px",
-          marginLeft: "6px",
-          marginRight: "6px"
-        }}>
+        <p className="text-[#1a1b1c83] text-opacity-70 font-semibold text-sm ml-1.5 mr-1.5">
           {section}
         </p>
         <Image
           alt="right-bracket"
-          src="/Rectangle_2711.png"
+          loading="lazy"
           width={5}
           height={19}
-          style={{ width: "4px", height: "17px", color: "transparent" }}
+          decoding="async"
+          className="w-[4px] h-[17px]"
+          style={{ color: "transparent" }}
+          src="/Rectangle_2711.png"
         />
       </div>
-      <button style={{
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "8px",
-        whiteSpace: "nowrap",
-        fontWeight: 600,
-        transitionProperty: "color, background-color, border-color",
-        height: "36px",
-        paddingLeft: "16px",
-        paddingRight: "16px",
-        marginLeft: "16px",
-        marginRight: "16px",
-        transform: "scale(0.8)",
-        color: "#FCFCFC",
-        fontSize: "10px",
-        backgroundColor: "#1A1B1C",
-        lineHeight: "16px",
-        border: "none",
-        cursor: "pointer"
-      }}>
+      <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-colors disabled:pointer-events-none text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 mx-4 scale-[0.8] text-[#FCFCFC] text-[10px] bg-[#1A1B1C] leading-[16px]">
         ENTER CODE
       </button>
     </div>
