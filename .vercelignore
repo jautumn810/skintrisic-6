@@ -3,12 +3,6 @@ node_modules
 .next
 .vscode
 src
-app
-components
 lib
-postcss.config.js
-tailwind.config.js
 vite.config.js
-.eslintrc.cjs
 *.log
-
