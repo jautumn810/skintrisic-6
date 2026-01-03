@@ -372,6 +372,13 @@ html, body {
   color: white;
 }
 .diamond-btn.black span { color: white; }
+.diamond-btn-small {
+  width: 80px !important;
+  height: 80px !important;
+}
+.diamond-btn-small span {
+  font-size: 12px !important;
+}
 
 /* Rotating dotted squares */
 @keyframes slowSpin {
