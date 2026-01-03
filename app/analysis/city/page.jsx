@@ -18,6 +18,43 @@ export default function CityPage() {
   useEffect(() => {
     const u = loadUser()
     if (u?.location) setCity(u.location)
+    
+    // Debug: Check if buttons have small class and CSS rules
+    setTimeout(() => {
+      console.log('=== CITY PAGE BUTTON DEBUG ===');
+      const buttons = document.querySelectorAll('.back-fixed .diamond-btn, .right-fixed .diamond-btn');
+      console.log(`Found ${buttons.length} buttons`);
+      
+      buttons.forEach((btn, index) => {
+        const computedStyle = window.getComputedStyle(btn);
+        console.log(`\n--- Button ${index + 1} ---`);
+        console.log('className:', btn.className);
+        console.log('classList:', Array.from(btn.classList));
+        console.log('has "small" class:', btn.classList.contains('small'));
+        console.log('has "diamond-btn" class:', btn.classList.contains('diamond-btn'));
+        console.log('Computed width:', computedStyle.width);
+        console.log('Computed height:', computedStyle.height);
+        
+        // Check if CSS rule exists
+        const stylesheets = Array.from(document.styleSheets);
+        let smallRuleFound = false;
+        stylesheets.forEach((sheet, sheetIndex) => {
+          try {
+            const rules = Array.from(sheet.cssRules || []);
+            rules.forEach((rule, ruleIndex) => {
+              if (rule.selectorText && rule.selectorText.includes('.diamond-btn.small')) {
+                console.log(`Found .diamond-btn.small rule in stylesheet ${sheetIndex}, rule ${ruleIndex}:`, rule.cssText);
+                smallRuleFound = true;
+              }
+            });
+          } catch (e) {
+            console.log(`Could not access stylesheet ${sheetIndex}:`, e.message);
+          }
+        });
+        console.log('Small CSS rule found:', smallRuleFound);
+      });
+      console.log('=== END DEBUG ===\n');
+    }, 100);
   }, [])
 
   async function onProceed() {
